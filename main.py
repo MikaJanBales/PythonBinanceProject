@@ -32,6 +32,11 @@ async def binance_all_exchange():
                 answer_data.append(data_one)
             print(answer_data)
 
-if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(binance_xrp_exchange())
+
+if __name__ == '__main__':
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        asyncio.run(binance_xrp_exchange())
+    except KeyboardInterrupt:
+        pass
